@@ -1,9 +1,19 @@
-import React from 'react'
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import MapPage from "./pages/MapPage";
 
-const App = () => {
+function App() {
   return (
-    <div>App</div>
-  )
+    <Router>
+      <div className="h-screen bg-gray-100 flex justify-center items-center">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/map" element={<MapPage />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
