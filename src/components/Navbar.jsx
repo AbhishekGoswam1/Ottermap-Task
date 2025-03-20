@@ -9,10 +9,10 @@ const Navbar = ({userName}) => {
         <p className="text-black">{userName}</p>
       <ul className="flex gap-4 text-xl">
         <li>
-          <NavLink to="/" className="!text-white">Home</NavLink>
+          <NavLink to="/" className="!text-black">Home</NavLink>
         </li>
         <li>
-          <NavLink to="/maps" className="!text-white">MapPage</NavLink>
+          <NavLink to="/maps" className="!text-black">MapPage</NavLink>
         </li>
       </ul>
     </nav>
