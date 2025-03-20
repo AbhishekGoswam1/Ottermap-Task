@@ -8,6 +8,7 @@ function Home() {
   const [searchLocation, setSearchLocation] = useState("");
   const navigate = useNavigate();
 
+
   const handleSearch = () => {
     if (!searchLocation.trim()) {
       alert("Please enter a location.");
@@ -18,15 +19,18 @@ function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
     if (!name.trim() || !mobile.trim()) {
       alert("Please enter both Name and Mobile Number.");
       return;
     }
-
-    localStorage.setItem("userName", name);
+  
+    localStorage.setItem("userName", name); //save username to localstorage
+    // console.log("Stored Name:", localStorage.getItem("userName"));
+  
     navigate("/map");
   };
+  
 
   return (
     <div className="min-h-screen w-screen flex flex-col items-center bg-gradient-to-r from-violet-500 to-indigo-500 gap-40">
@@ -37,7 +41,6 @@ function Home() {
           Search a Location & Enter Details
         </h2>
 
-        {/* Search Bar & Button (Separate Section) */}
         <div className="flex w-full gap-4 mb-6 flex-wrap">
           <input
             type="text"
@@ -55,7 +58,7 @@ function Home() {
           </button>
         </div>
 
-        {/* Name & Mobile Inputs with Separate Button */}
+        {/* Name and number section */}
         <form onSubmit={handleSubmit} className="flex w-full gap-4 flex-wrap">
           <input
             type="text"
