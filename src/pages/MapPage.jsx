@@ -3,20 +3,19 @@ import Maps from "../components/Maps";
 import Navbar from "../components/Navbar";
 
 function MapPage() {
-  const [userName, setUserName] = useState("Guest");
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
-    const storedName = localStorage.getItem("userName");
-    if (storedName) {
-      setUserName(storedName);
-    }
-    // console.log("username:", storedName); //for test
+    const storedName = localStorage.getItem("userName") || "Guest";
+    setUserName(storedName);
   }, []);
 
   return (
     <div className="w-full h-screen bg-gray-100 flex flex-col items-center">
-      <Navbar userName={userName} />
-      <div className="w-full h-full mt-2 p-2 bg-white rounded-lg shadow-md">
+
+      <Navbar username={userName} /> {/*username passing*/}
+
+      <div className="w-fit h-full mt-2">
         <Maps />
       </div>
     </div>
